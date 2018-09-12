@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>python-if-2</title>
+</head>
+<body>
+<button type="button" onclick = "tempexchg(parseInt(prompt('Nhập vào độ C: ')))">Bài 1: Chuyển từ C  sang F</button>
+<button type="button" onclick = "lengthconvert(parseInt(prompt('Nhập vào độ dài (m): ')))">Bài 2: Chuyển từ m  sang feet</button>
+<button type="button" onclick = "areasquare(parseInt(prompt('Nhập vào độ dài 1 cạnh: ')))">Bài 3: Tính diện tích hình vuông</button>
+<button type="button" onclick = "areasrec(parseInt(prompt('Nhập vào độ dài chiều dài: '),prompt('Nhập vào độ dài chiều rộng: ')))">Bài 4: Tính diện tích hình chữ nhật</button>
+<button type="button" onclick = "areatri(parseInt(prompt('Nhập vào độ dài cạnh 1: ')),parseInt(prompt('Nhập vào độ dài cạnh 2: ')))">Bài 5: Tính diện tích hình tam giác vuông</button>
+<button type="button" onclick = "equa1(parseInt(prompt('Nhập vào a: ')),parseInt(prompt('Nhập vào b: ')))">Bài 6: Giải phương trình bậc 1 </button>
+<button type="button" onclick = "equa2(parseInt(prompt('Nhập vào a: ')),parseInt(prompt('Nhập vào b: ')),parseInt(prompt('Nhập vào c: ')))">Bài 7: Giải phương trình bậc 2 </button>
+<button type="button" onclick = "humanlongevity(parseInt(prompt('Nhập vào độ tuổi: ')))">Bài 8: Kiểm tra độ tuổi</button>
+<button type="button" onclick = "triangel(parseInt(prompt('Nhập vào a: ')),parseInt(prompt('Nhập vào b: ')),parseInt(prompt('Nhập vào c: ')))">Bài 9: Cạnh của 1 tam giác </button>
+<button type="button" onclick = "ecost(parseInt(prompt('Nhập vào số điện: ')))">Bài 10: Tính tiền điện</button>
+<button type="button" onclick = "tax(parseInt(prompt('Nhập vào lương (triệu): ')))">Bài 11: Tính thuế thu nhập cá nhân (triệu)</button>
+<button type="button" onclick = "Bankingterest(parseInt(prompt('Số tiền: (triệu) ')),parseInt(prompt('Số tháng: ')),parseFloat(prompt('Lãi xuất: ')))">Bài 12: Lãi ngân hàng </button>
+
+</body>
+<script>
+    function tempexchg(c){
+        let f = c*1.8+32;
+        alert ("Nhiệt độ F là: "+f)
+    }
+
+    function lengthconvert(m){
+        let f = m*3.2808;
+        alert("Chiều dài feet là: "+f);
+     }
+
+     function areasquare(a){
+        let s = Math.pow(a,2);
+        alert("Diện tích hình vuông là: "+s);
+     }
+
+    function areasrec(a,b){
+        let s = a*b;
+        alert("Diện tích hình vuông là: "+s);
+    }
+
+    function areatri(a,b){
+        let x = a*b*0.5;
+        alert("Diện tích tam giác vuông là: "+s);
+    }
+
+    function equa1(a,b){
+        let x = (-b)/a;
+        alert("Giá trị của biến là: "+x);
+    }
+
+    function equa2(a,b,c){
+        let d = Math.pow(b,2)-4*a*c;
+        let x1=0;
+        let x2=0;
+        if(d<0){
+            alert("Phương trình vô nghiệm");
+        }else if(d==0){
+            x1 = -(b/(2*a));
+            alert("Phương trình có 1 nghiệm là: "+x1);
+        }else if(d>0){
+            x1= (-b-Math.sqrt(d))/(2*a);
+            x2= (-b+Math.sqrt(d))/(2*a);
+            alert("Phương trình có 2 nghiệm là: x1= "+x1+" và x2= "+x2);
+        }
+    }
+
+    function humanlongevity(a){
+        if(a>0){
+            if(a<120){
+                alert("Là tuổi của 1 người");
+            }else alert("Làm gì có ai sống lâu thế???");
+        }else {alert("Chưa được sinh ra");}
+    }
+
+    function triangel(a,b,c){
+        if(a>0 && b>0 && c>0 && (a+b>c) &&  (a+c>b) && (b+c>a)){
+            alert("Chiều dài 3 cạnh trên thoả mãn là của 1 tam giác");
+        }else{
+            alert("Chiều dài 3 cạnh trên KHÔNG thoả mãn là của 1 tam giác");
+        }
+    }
+    function ecost(a){
+        let c=0;
+        if(a<50){
+            c=a*1484;
+        }else if (a<100){
+            c=(a-50)*1533+50*1484;
+        }else if (a<200){
+            c=(a-100)*1786+100*1533+50*1484;
+        }else if(a<300){
+            c=(a-200)*2242+200*1786+100*1533+50*1484;
+        }else if(a<400){
+            c=(a-300)*2503+300*2242+200*1786+100*1533+50*1484;
+        }else {
+            c= (a-400)*2587+400*2242+200*1786+100*1533+50*1484;
+        }alert("Tiền điện tháng này của gia đình là: "+c);
+    }
+    function tax(a){
+        let c=0;
+        if(a<5){
+            c=a*0;
+        }else if (a<10){
+            c=(a-5)*5/100;
+        }else {
+            c= (a-10)*10/100+10*7.5/100;
+        }alert("Thuế thu nhập cá nhân của bạn là: "+c+" (triệu)");
+    }
+    function Bankingterest(a,b,c){
+        let bi=0;
+        for (let i=0; i<=b;i++){
+            bi=a*Math.pow((1+(c/100)),b-1);
+        }alert("Tiền lãi sau "+b+" là: "+ bi + "(triệu)");
+    }
+</script>
+</html>
