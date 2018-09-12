@@ -107,11 +107,9 @@
             c= (a-10)*10/100+10*7.5/100;
         }alert("Thuế thu nhập cá nhân của bạn là: "+c+" (triệu)");
     }
-    function Bankingterest(a,b,c){
-        let bi=0;
-        for (let i=0; i<=b;i++){
-            bi=a*Math.pow((1+(c/100)),b-1);
-        }alert("Tiền lãi sau "+b+" là: "+ bi + "(triệu)");
+    function Bankingterest(a,b,c) {
+        let bi = a * Math.pow((1 + (c / 100)), b - 1);
+        alert("Tiền lãi sau " + b + " là: " + bi + "(triệu)");
     }
 </script>
 </html>
